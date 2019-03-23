@@ -76,9 +76,10 @@ $Env:RELEASE_ROOT_DIR = $release_root_dir
 # Directory containing the current version of this release
 $Env:REL_DIR = $rel_dir
 # The lib directory for this release
-$Env:REL_LIB_DIR = (join-path $release_root_dir "lib")
+$rel_lib_dir = (join-path $release_root_dir "lib")
+$Env:REL_LIB_DIR = $rel_lib_dir
 # The location of consolidated protocols
-$Env:CONSOLIDATED_DIR = (join-path $release_root_dir (join-path ("{0}-{1}" -f $rel_name,$rel_vsn) "consolidated"))
+$Env:CONSOLIDATED_DIR = (join-path $release_lib_dir (join-path ("{0}-{1}" -f $rel_name,$rel_vsn) "consolidated"))
 # The location of generated files and other mutable state
 if ($Env:RELEASE_MUTABLE_DIR -eq $null) {
     $Env:RELEASE_MUTABLE_DIR = (join-path $release_root_dir "var")
